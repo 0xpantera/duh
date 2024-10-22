@@ -1,0 +1,66 @@
+cabal-version:      3.0
+name:               duh
+version:            0.1.0.0
+-- synopsis:
+-- description:
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             0xpantera
+maintainer:         0xpantera@proton.me
+-- copyright:
+category:           System
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-error=unrecognised-warning-flags
+
+library
+    import:           warnings
+    exposed-modules:  App
+    other-modules:
+        AppRTWTST
+        AppTypes
+        DirTree
+        DiskUsage
+        FileCounter
+        Utils
+    default-extensions:
+        RecordWildCards
+        NamedFieldPuns
+        OverloadedStrings
+    other-extensions:
+        GeneralizedNewtypeDeriving
+    build-depends:    
+          base ^>=4.19.1.0
+        , directory ==1.3.*
+        , extra >=1.5 && <1.8
+        , filepath >=1.4.1 && <1.6
+        , mtl >=2.0 && <2.4
+        , optparse-applicative >=0.14 && <0.19
+        , text >=1.2 && <2.2
+        , text-show >=3.0 && <4
+        , unix-compat >=0.5 && <0.8
+    hs-source-dirs:   src
+    default-language: GHC2021
+
+executable duh
+    import:           warnings
+    main-is:          Main.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:
+          base ^>=4.19.1.0
+        , duh
+        , directory ==1.3.*
+        , extra >=1.5 && <1.8
+        , filepath >=1.4.1 && <1.6
+        , mtl >=2.0 && <2.4
+        , optparse-applicative >=0.14 && <0.19
+        , text >=1.2 && <2.2
+        , text-show >=3.0 && <4
+        , unix-compat >=0.5 && <0.8
+
+    hs-source-dirs:   app
+    default-language: GHC2021
